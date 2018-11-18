@@ -47,12 +47,13 @@ class Player extends Component {
 
     // clean state if the media source has changed
     if (this.props.src !== nextProps.src) {
+      const { media } = this.context
       this._setPlayerState({
         currentTime: 0,
         progress: 0,
         duration: 0,
         isLoading: true,
-        isPlaying: false,
+        isPlaying: media.isPlaying,
       })
     }
   }
